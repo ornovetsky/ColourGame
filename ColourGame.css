@@ -1,0 +1,40 @@
+body {
+  background-color: #dee2e6;
+  margin: 0 0;
+}
+
+.square {
+width: 32.5%;
+background: purple;
+padding-bottom: 30%;
+float: left;
+margin: 0.41%;
+}
+
+#container {
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: #6c757d;
+  padding-bottom: 9999px;
+  padding-top: 0px;
+}
+
+h3 {
+text-align: center;  
+font-family: 'Open Sans', sans-serif;
+font-weight: 300;
+color: #dee2e6;
+margin: 0 auto;
+padding-top: 10px;
+}
+
+h1 {
+  text-align: center;  
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+  font-style: light;
+  color: #dee2e6;
+  margin: 0 auto;
+  padding-top: 0px;
+  text-transform: uppercase;
+  }
