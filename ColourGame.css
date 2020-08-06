@@ -1,22 +1,82 @@
 body {
-  background-color: #dee2e6;
+	background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+	background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
   margin: 0 0;
+  padding: 0 0;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
 }
 
 .square {
 width: 32.5%;
 background: purple;
-padding-bottom: 30%;
+padding-bottom: 32.5%;
 float: left;
 margin: 0.41%;
+border-radius: 35px;
 }
 
 #container {
   max-width: 600px;
   margin: 0 auto;
-  background-color: #6c757d;
-  padding-bottom: 9999px;
+  background-color: #000000;
+  padding-bottom: 50px;
   padding-top: 0px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-left: 2px solid white;
+  border-right: 2px solid white;
+}
+
+.fade-out {
+  animation: fadeOut 1s;
+}
+
+@keyframes fadeOut {
+  from {
+    background-color: red;
+  }
+  to {
+    background-color: black;
+  }
+  
+}
+
+.fade-out2 {
+  animation: fadeOut2 1s;
+}
+
+@keyframes fadeOut2 {
+  from {
+    background-color: red;
+  }
+  to {
+    background-color: black;
+  }
+  
+}
+
+.fade-in-green {
+  animation: fadeIn 1s;
+}
+@keyframes fadeIn {
+  from {
+  background-color: black;
+  }
+  to {
+    background-color:rgb(153, 251, 36);
+  }
 }
 
 h3 {
@@ -25,7 +85,7 @@ font-family: 'Open Sans', sans-serif;
 font-weight: 300;
 color: #dee2e6;
 margin: 0 auto;
-padding-top: 10px;
+padding: 2% 0;
 }
 
 h1 {
@@ -35,6 +95,64 @@ h1 {
   font-style: light;
   color: #dee2e6;
   margin: 0 auto;
-  padding-top: 0px;
+  padding: 2% 0;
   text-transform: uppercase;
+  }
+
+  p {
+    text-align:justify;  
+    text-justify:inter-word;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+    color: #dee2e6;
+    margin: 0 auto;
+    padding: 2% 1%;
+    float: left;
+  }
+
+
+  .buttonsTop {
+    text-align: center;  
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+    color: #dee2e6;
+    margin: 0 auto;
+    padding-bottom: 3%;
+    
+  }
+  .buttonsDown {
+    text-transform: uppercase;
+    float:left;
+    margin: 3% 20%;
+
+  }
+  
+  .ttp {
+    margin: 10%;
+  }
+  
+  img {
+    width:40%;
+    padding: 0 30%;
+  }
+
+  .sqrs {
+    padding-bottom:10%;
+  }
+
+  .tryAgain {
+color: white;
+text-align: center;  
+font-family: 'Open Sans', sans-serif;
+font-weight: 300;
+font-size: 40px;
+position: absolute;
+/* z-index: 50%; */
+width: 100%;
+margin: 21.5% 0;
+padding: 4% 0%;
+background-color: rgba(0, 0, 0, 0.4);
+  }
+  .tryAgain:hover{
+    cursor: pointer;
   }
