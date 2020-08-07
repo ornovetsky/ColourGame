@@ -18,6 +18,8 @@ const reset = document.querySelector(".reset");
 easyMode.addEventListener("click", setEasyMode)
 hardMode.addEventListener("click", setHardMode)
 reset.addEventListener("click", ()=> location.reload())
+const ezModeMessage = document.getElementById("ezModeMessage")
+const hardModeMessage = document.getElementById("hardModeMessage")
 
 for (let i=0;i<squares.length;i++){
   squares[i].style.backgroundColor = generateColor()
@@ -63,13 +65,26 @@ function resetGameWin(e){
 function setEasyMode() {
   easyMode.classList.add("selected")
   hardMode.classList.remove("selected")
+  ezModeMessage.textContent = "You have 3 attempts!"
+  ezModeMessage.classList.remove("hidden")
+  ezModeMessage.classList.add("easyModeGone")
+  ezModeMessage.classList.add("msgDissapear")
+
+  // you have 3 attempts
+  lossCap = 2;
   for (let i=0;i<3;i++){
     squares[i].classList.add("hidden");
 }}
 
+
 function setHardMode() {
   easyMode.classList.remove("selected")
   hardMode.classList.add("selected")
+  ezModeMessage.textContent = "You have 2 attempts!"
+  ezModeMessage.classList.remove("hidden")
+  ezModeMessage.classList.add("easyModeGone")
+  ezModeMessage.classList.add("msgDissapear")
+  lossCap = 1;
   for (let i=0;i<squares.length;i++){
     squares[i].classList.remove("hidden");
 }
@@ -78,15 +93,19 @@ function setHardMode() {
 if win() is triggered, it will ++ the WIN counter and do GenerateColors()
 else loss() loss++ GenerateColos()
 */
-let gameOver = false;
 let lossStreak = 0;
-let lossCap = 3; 
+let lossCap = 1; 
 // if lossStreak != lossCap gameOver = false.
 
 /* EVALUATE ---- will compare value of the clicked with the value of the picked,
 if it's equal it will change body color and all squares to green  
 */
-
+function houdini() {
+  ezModeMessage.classList.add("hidden")
+}
+function houdini2() {
+  hardModeMessage.classList.add("hidden")
+}
 
 function evaluate(e){
 let val
@@ -104,6 +123,7 @@ console.log(val)
     container.classList.add("fade-out2")
     tryAgainLoss.classList.remove("hidden");
     lossStreak++
+    container.style.backgroundColor = currentColor
     resetGameLoss
     }
     else if (container.className === "fade-out2" && lossStreak === lossCap) {
@@ -111,6 +131,7 @@ console.log(val)
       container.classList.add("fade-out")
       lossStreak++
       tryAgainLoss.classList.remove("hidden");
+      container.style.backgroundColor = currentColor
       resetGameLoss
     }
     else if (container.className === "fade-out") {
@@ -126,6 +147,7 @@ console.log(val)
       else if (lossStreak === lossCap) {
         tryAgainLoss.classList.remove("hidden");
         lossStreak++
+        container.style.backgroundColor = currentColor
         resetGameLoss
         }
   else {

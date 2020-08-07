@@ -10,11 +10,13 @@
 <body>
   <div id="loss" class="hidden">You've lost. Click me to try again!</div>
   <div id="win" class="hidden">You won. Click me to try again!</div>
+  <div id="ezModeMessage" class="hidden">You have 3 attempts</div>
+  <div id="hardModeMessage" class="hidden">You have 2 attempts</div>
     <div id="container">
 <h3>GUESS THE COLOUR BY ITS RGB VALUE </h3>
 <h1>RGB(211,205,13)</h1>
   <div class="buttonsTop">
-  <span class="reset ttp">RESET</span><span class="easy ttp">EASY</span><span class="hard ttp selected">HARD</span>
+  <span class="reset ttp">RESET</span><span onclick="setTimeout(houdini, 1100)" class="easy ttp">EASY</span><span onclick="setTimeout(houdini, 1100)" class="hard ttp selected">HARD</span>
   </div>
       <div class="sqrs">
         <div class="square"></div>

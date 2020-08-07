@@ -130,6 +130,9 @@ h1 {
   .ttp {
     margin: 10%;
   }
+  .ttp:hover{
+    cursor: pointer;
+  }
   
   img {
     width:40%;
@@ -149,11 +152,11 @@ font-size: 40px;
 position: absolute;
 /* z-index: 50%; */
 width: 100%;
-margin: 21.5% 0;
-padding: 4% 0%;
-background-color: rgba(0, 0, 0, 0.4);
+margin: 0 0;
+padding: 25% 0%;
+background-image: linear-gradient( rgba(0, 0, 0, 0), rgba(161, 4, 4, 0.7), rgba(0, 0, 0, 0));
   }
-  .loss:hover{
+  #loss:hover{
     cursor: pointer;
   }
 
@@ -167,11 +170,11 @@ font-size: 40px;
 position: absolute;
 /* z-index: 50%; */
 width: 100%;
-margin: 21.5% 0;
-padding: 4% 0%;
-background-color: rgba(0, 0, 0, 0.4);
+margin: 0 0;
+padding: 25% 0%;
+background-image: linear-gradient( rgba(0, 0, 0, 0), rgba(4, 161, 17, 0.7), rgba(0, 0, 0, 0));
   }
-  .win:hover{
+  #win:hover{
     cursor: pointer;
   }
 
@@ -189,3 +192,60 @@ background-color: rgba(0, 0, 0, 0.4);
   border-radius: 5px;
   padding: 2px 6px;
 }
+
+
+.easyModeGone {
+  color: white;
+  text-align: center;  
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+  font-size: 40px;
+  position: absolute;
+  /* z-index: 50%; */
+  width: 100%;
+  margin: 21.5% 0;
+  padding: 4% 0%;
+  background-color: rgba(0, 0, 0, 0.4);
+  /* transition-property:all; transition-duration:1s;
+  overflow:hidden */
+}
+    
+
+    .easyModeGone:hover{
+      cursor: pointer;
+    }
+
+.msgDissapear   {
+   animation: fadeOutt 2s;
+}
+@keyframes fadeOutt {
+  from {
+    background-color: rgba(0, 0, 0, 0.4);
+    color: white;
+
+  }
+  to {
+    background-color: rgba(0, 0, 0, 0);
+    color:rgba(0, 0, 0, 0);
+  }
+}
+
+
+.hardMode {
+
+}
+
+
+
+/*
+animation: fadeIn 1s;
+}
+@keyframes fadeIn {
+  from {
+  background-color: black;
+  }
+  to {
+    background-color:rgb(153, 251, 36);
+  }
+}
+*/
