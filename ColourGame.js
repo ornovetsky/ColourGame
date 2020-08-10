@@ -1,5 +1,6 @@
 
 const squares = [...document.getElementsByClassName("square")];
+const kvadratiki = document.querySelectorAll(".square")
 const h1 = document.getElementsByTagName("h1")[0]
 const container = document.getElementById("container");
 const tryAgainLoss = document.getElementById("loss")
@@ -10,6 +11,8 @@ const lossCount = document.getElementById("lossCount")
 const winCount = document.getElementById("winCount")
 let losses = 0
 let wins = 0
+let lossStreak = 0;
+let lossCap = 1; 
 lossCount.innerText = "LOSSES: " + losses
 winCount.innerText = "WINS: " + wins
 const easyMode = document.querySelector(".easy");
@@ -20,15 +23,42 @@ hardMode.addEventListener("click", setHardMode)
 reset.addEventListener("click", ()=> location.reload())
 const ezModeMessage = document.getElementById("ezModeMessage")
 const hardModeMessage = document.getElementById("hardModeMessage")
+const sqrs = document.getElementsByClassName("sqrs")[0]
+let currentColor
+let mode = "hard"
+generateNineSquares()
 
-for (let i=0;i<squares.length;i++){
-  squares[i].style.backgroundColor = generateColor()
-  squares[i].addEventListener("click", evaluate)
+function generateSixSquares(){
+let i = 0;
+while(sqrs.childNodes.length != 0)
+{sqrs.childNodes[0].remove()}
+  for (let j=0;j<6;j++){
+    const square = document.createElement("div")
+    square.className = "square"
+    square.style.backgroundColor = generateColor()
+    square.addEventListener("click", evaluate)
+    document.getElementsByClassName("sqrs")[0].appendChild(square)
+  }
+  h1.innerText = sqrs.childNodes[Math.floor(Math.random()*Math.floor(6))].style.backgroundColor
+  currentColor = h1.innerText.toLowerCase();
+}
+
+function generateNineSquares(){
+let i = 0;
+while(sqrs.childNodes.length != 0)
+{sqrs.childNodes[0].remove()}
+  for (let j=0;j<9;j++){
+    const square = document.createElement("div")
+    square.className = "square"
+    square.style.backgroundColor = generateColor()
+    square.addEventListener("click", evaluate)
+    document.getElementsByClassName("sqrs")[0].appendChild(square)
+  }
+  h1.innerText = sqrs.childNodes[Math.floor(Math.random()*Math.floor(6))].style.backgroundColor
+  currentColor = h1.innerText.toLowerCase();
 }
 
 
-h1.innerText = squares[Math.floor(Math.random()*Math.floor(6))].style.backgroundColor
-let currentColor = h1.innerText.toLowerCase();
 
 function generateColor(){
 return "RGB(" + Math.floor(Math.random() * Math.floor(255)) + ", " + (Math.floor(Math.random() * Math.floor(255))) + ", " + (Math.floor(Math.random() * Math.floor(255))) + ")"
@@ -36,15 +66,16 @@ return "RGB(" + Math.floor(Math.random() * Math.floor(255)) + ", " + (Math.floor
 
 function resetGameLoss(e){
   tryAgainLoss.classList.add("hidden")
-  for (let i=0;i<squares.length;i++){
-    squares[i].style.backgroundColor = generateColor()
-  }
-  h1.innerText = squares[Math.floor(Math.random()*Math.floor(6))].style.backgroundColor
-  currentColor = h1.innerText.toLowerCase();
   container.style.backgroundColor = "black";
   lossStreak = 0;
   losses++
   lossCount.innerText = "LOSSES: " + losses
+  if(mode === "easy"){
+    generateSixSquares()
+  }
+  if(mode === "hard"){
+    generateNineSquares()
+  }
 }
 
 function resetGameWin(e){
@@ -54,12 +85,16 @@ function resetGameWin(e){
     squares[i].style.visibility = "visible";
     squares[i].classList.remove("fade-in-green");
   }
-  h1.innerText = squares[Math.floor(Math.random()*Math.floor(6))].style.backgroundColor
-  currentColor = h1.innerText.toLowerCase();
   container.style.backgroundColor = "black";
   lossStreak = 0;
   wins++
   winCount.innerText = "WINS: " + wins
+  if(mode === "easy"){
+    generateSixSquares()
+  }
+  if(mode === "hard"){
+    generateNineSquares()
+  }
 }
 
 function setEasyMode() {
@@ -69,12 +104,12 @@ function setEasyMode() {
   ezModeMessage.classList.remove("hidden")
   ezModeMessage.classList.add("easyModeGone")
   ezModeMessage.classList.add("msgDissapear")
-
   // you have 3 attempts
   lossCap = 2;
-  for (let i=0;i<3;i++){
-    squares[i].classList.add("hidden");
-}}
+  mode = "easy"
+  generateSixSquares()
+}
+
 
 
 function setHardMode() {
@@ -85,21 +120,11 @@ function setHardMode() {
   ezModeMessage.classList.add("easyModeGone")
   ezModeMessage.classList.add("msgDissapear")
   lossCap = 1;
-  for (let i=0;i<squares.length;i++){
-    squares[i].classList.remove("hidden");
+  mode = "hard"
+  generateNineSquares()
 }
-}
-/* need resetGame() that will reset the game after attempts
-if win() is triggered, it will ++ the WIN counter and do GenerateColors()
-else loss() loss++ GenerateColos()
-*/
-let lossStreak = 0;
-let lossCap = 1; 
-// if lossStreak != lossCap gameOver = false.
 
-/* EVALUATE ---- will compare value of the clicked with the value of the picked,
-if it's equal it will change body color and all squares to green  
-*/
+
 function houdini() {
   ezModeMessage.classList.add("hidden")
 }
@@ -155,25 +180,3 @@ console.log(val)
     lossStreak++
   }
 }
-
-/*
-++++++   buttons easy/hard
-        easy -- 6 squares
-        3 errors before fail
-        hard - 9 divs
-        1 error before fail.
-
-++++  Loss/Win/Reset counter below
-      Reset Button
-
-+++ When you fail it has to fade out, show try again button show you 
-    correct square and loss++
-
-++ Try again button, function that will initiate random squares assignment
-   And will manipulate the loss/win counter and reset
-
-+  Add smooth css animation and color change functionality
-
-+++ Add developed by Andrei Ornovetchii and email
-
-*/
