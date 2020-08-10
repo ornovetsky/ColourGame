@@ -150,7 +150,6 @@ font-family: 'Open Sans', sans-serif;
 font-weight: 300;
 font-size: 40px;
 position: absolute;
-/* z-index: 50%; */
 width: 100%;
 margin: 0 0;
 padding: 25% 0%;
@@ -168,7 +167,6 @@ font-family: 'Open Sans', sans-serif;
 font-weight: 300;
 font-size: 40px;
 position: absolute;
-/* z-index: 50%; */
 width: 100%;
 margin: 0 0;
 padding: 25% 0%;
@@ -201,13 +199,10 @@ background-image: linear-gradient( rgba(0, 0, 0, 0), rgba(4, 161, 17, 0.7), rgba
   font-weight: 300;
   font-size: 40px;
   position: absolute;
-  /* z-index: 50%; */
   width: 100%;
   margin: 21.5% 0;
   padding: 4% 0%;
   background-color: rgba(0, 0, 0, 0.4);
-  /* transition-property:all; transition-duration:1s;
-  overflow:hidden */
 }
     
 
@@ -231,24 +226,6 @@ background-image: linear-gradient( rgba(0, 0, 0, 0), rgba(4, 161, 17, 0.7), rgba
 }
 
 
-.hardMode {
-
-}
-
-
-
-/*
-animation: fadeIn 1s;
-}
-@keyframes fadeIn {
-  from {
-  background-color: black;
-  }
-  to {
-    background-color:rgb(153, 251, 36);
-  }
-}
-*/
 .footer {
 padding: 0 28%;
 }
